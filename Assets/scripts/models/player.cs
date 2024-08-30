@@ -9,9 +9,6 @@ public class player : MonoBehaviour
     public entity entity;
 
     [Header("Player UI")]
-    public Slider health;
-    public Slider stamina;
-    public Slider exp;
     public Text strTxt;
     public Text resTxt;
     public Text agiTxt;
@@ -38,17 +35,6 @@ public class player : MonoBehaviour
 
     void Start()
     {
-        entity.currentHealth = entity.maxHealth;
-        entity.currentStamina = entity.maxStamina;
-
-        health.maxValue = entity.maxStamina;
-        health.value = health.maxValue;
-
-        stamina.maxValue = entity.maxStamina;
-        stamina.value = stamina.maxValue;
-
-        exp.value = 0;
-
         UpdatePoints();
         SetupUIButtons();
     }
@@ -64,8 +50,6 @@ public class player : MonoBehaviour
             inventory.SetActive(!inventory.activeSelf);
         }
 
-        health.value = entity.currentHealth;
-        stamina.value = entity.currentStamina;
 
     }
 
