@@ -15,6 +15,11 @@ public class HeartSystem : MonoBehaviour
     public Sprite vazio;
 
 
+    void Update()
+    {
+        Health();
+    }
+
     void Health()
     {
         if(vida > vidaMaxima)
