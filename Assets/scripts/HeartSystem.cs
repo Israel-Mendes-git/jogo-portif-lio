@@ -18,6 +18,7 @@ public class HeartSystem : MonoBehaviour
     void Update()
     {
         Health();
+        DeadState();
     }
 
     void Health()
@@ -44,6 +45,15 @@ public class HeartSystem : MonoBehaviour
             {
                 heart[i].enabled = false;
             }
+        }
+    }
+
+    void DeadState()
+    {
+        if (vida <= 0)
+        {
+            GetComponent<player_controller>().enabled = false;
+            Destroy(gameObject, 1.0f);
         }
     }
 
