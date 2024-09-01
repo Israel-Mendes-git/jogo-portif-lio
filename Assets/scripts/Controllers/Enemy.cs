@@ -14,13 +14,17 @@ public class Enemy : MonoBehaviour
                 Destroy(gameObject);
             }
         } 
+        get
+        {
+            return health;
+        }
     }
     public int health = 3;
 
-    void OnHit(int damage)
+    public void OnHit(int damage)
     {
         Debug.Log("deu dano");
-
+        Health -= damage;
     }
 
 

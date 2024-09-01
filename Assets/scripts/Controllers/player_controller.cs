@@ -55,7 +55,7 @@ public class player_controller : MonoBehaviour
         {
             case State.Normal:
                 //armazena as dire��es horizontal e vertical
-                direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+                direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
 
                 if (Input.GetKeyDown(KeyCode.L))
                 {
@@ -131,7 +131,7 @@ public class player_controller : MonoBehaviour
                 player.entity.speed = inicialSpeed;
             }
         }
-    void OnAttack()
+    public void OnAttack()
     {
         if (Input.GetKeyDown(KeyCode.G) || Input.GetMouseButtonDown(0))
         {

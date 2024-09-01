@@ -4,32 +4,49 @@ using UnityEngine;
 
 public class AttackHitbox : MonoBehaviour
 {
+    private GameObject PontoAtaque = default;
 
-    public int attackDamage;
-    public player player;
-    public Collider2D attackCollider;
+    private bool attacking = false;
+    public player_controller player;
+
+    private float timeToAttack = 0.25f;
+    private float timer = 0f;
 
     void Start()
     {
-        player = GetComponent<player>();
-        if (player == null)
-        {
-            Debug.LogError("O componente 'entity' não foi encontrado no GameObject.");
-            return; // Interrompe a execução se o componente 'entity' não for encontrado
-        }
-        
-        attackDamage = player.entity.damage;
-        if(attackCollider == null)
-        {
-            Debug.LogWarning("Collider do ataque não foi setado");
-        }
-
+        PontoAtaque = transform.GetChild(0).gameObject;
+        player = GetComponent<player_controller>();
 
     }
-
-    void OnCollisionEnter2D(Collision2D col)
+    void Update()
     {
-        col.collider.SendMessage("OnHit", attackCollider);
+        if(Input.GetKeyDown(KeyCode.G))
+        {
+            Attack();
+            player.OnAttack();
+
+        }
+        if (attacking)
+        {
+            timer += Time.deltaTime;
+            
+            if (timer > timeToAttack )
+            {
+                timer = 0;
+                attacking = false;
+                PontoAtaque.SetActive(attacking);
+            }
+        }
+
     }
-    
+
+    private void Attack()
+    {
+        attacking = true;
+        if (PontoAtaque != null)
+        {
+            PontoAtaque.SetActive(attacking);
+        }
+    }
+
 }
