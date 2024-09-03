@@ -121,7 +121,8 @@ public class player_controller : MonoBehaviour
             }
         }
     void PlayerRun()
-        {
+        
+    {
             if (Input.GetKeyDown(KeyCode.LeftControl))
             {
                 player.entity.speed = runSpeed;

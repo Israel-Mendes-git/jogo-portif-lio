@@ -14,7 +14,7 @@ public class AttackHitbox : MonoBehaviour
 
     void Start()
     {
-        PontoAtaque = transform.GetChild(0).gameObject;
+
         player = GetComponent<player_controller>();
 
     }
@@ -37,7 +37,22 @@ public class AttackHitbox : MonoBehaviour
                 PontoAtaque.SetActive(attacking);
             }
         }
-
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            PontoAtaque = transform.GetChild(0).gameObject;
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            PontoAtaque = transform.GetChild(1).gameObject;
+        }
+        else if (Input.GetKeyDown(KeyCode.W))
+        {
+            PontoAtaque = transform.GetChild(2).gameObject;
+        }
+        else if (Input.GetKeyDown(KeyCode.A))
+        {
+            PontoAtaque = transform.GetChild(3).gameObject;
+        }
     }
 
     private void Attack()
