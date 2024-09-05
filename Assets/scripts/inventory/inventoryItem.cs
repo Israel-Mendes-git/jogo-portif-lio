@@ -20,10 +20,26 @@ public class inventoryItem : MonoBehaviour, IPointerClickHandler
 
     public void Initialize(item item, inventorySlot parent)
     {
-        activeSlot = parent;
-        activeSlot.myItem = this;
-        myItem = item;
-        itemIcon.sprite = item.sprite;
+
+        {
+            if (parent == null)
+            {
+                Debug.LogError("Parent slot is null.");
+                return;
+            }
+
+            if (item == null)
+            {
+                Debug.LogError("Item is null.");
+                return;
+            }
+
+            activeSlot = parent;
+            activeSlot.myItem = this;
+            myItem = item;
+            itemIcon.sprite = item.sprite;
+        }
+
 
     }
     public void OnPointerClick(PointerEventData eventData)

@@ -76,25 +76,35 @@ public class player : MonoBehaviour
 
     public void AddPoints(int index)
     {
-        if (index == 1)
-            entity.strength++;
-        else if (index == 2)
-            entity.resistence++;
-        else if (index == 3)
-            entity.agility++;
-        UpdatePoints();
+        if (entity.points > 0)
+        {
+            if (index == 1)
+            {
+                entity.strength++;
+                entity.damage++;
+            }
+            else if (index == 2)
+                entity.resistence++;
+            else if (index == 3)
+                entity.agility++;
+            entity.points--;
+            UpdatePoints();
+        }
+
     }
 
     public void RemovePoints(int index)
     {
+        
             if (index == 1 && entity.strength > 0)
                 entity.strength--;
             else if (index == 2 && entity.resistence > 0)
                 entity.resistence--;
-            else if (index == 3 && entity.speed > 0)
+            else if (index == 3 && entity.agility > 0)
                 entity.agility--;
-            
+
+            entity.points++;
             UpdatePoints();
-        
+
     }
 }
