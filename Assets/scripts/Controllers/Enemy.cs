@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public ExperienceManager ExperienceManager;
+    int expAmount = 50;
+
     public int Health { 
         set 
         { 
             health = value; 
 
-            if (health <= 0)
-            {
-                Destroy(gameObject);
-            }
+            
         } 
         get
         {
@@ -25,7 +25,15 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log("deu dano");
         Health -= damage;
+        if (health <= 0)
+        {
+            Die();
+        }
     }
-
+    void Die()
+    {
+            Destroy(gameObject);
+            ExperienceManager.Instance.AddExperience(expAmount);        
+    }
 
 }

@@ -84,9 +84,15 @@ public class player : MonoBehaviour
                 entity.damage++;
             }
             else if (index == 2)
+            {
                 entity.resistence++;
+                entity.defense++;
+            }
             else if (index == 3)
+            {
                 entity.agility++;
+                entity.speed += 0.1f;
+            }
             entity.points--;
             UpdatePoints();
         }

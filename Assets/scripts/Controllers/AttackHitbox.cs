@@ -12,6 +12,15 @@ public class AttackHitbox : MonoBehaviour
     private float timeToAttack = 0.25f;
     private float timer = 0f;
 
+    // Dicionário para mapear KeyCode para o índice do filho
+    private Dictionary<KeyCode, int> keyToChildIndex = new Dictionary<KeyCode, int>
+    {
+        { KeyCode.D, 0 },
+        { KeyCode.S, 1 },
+        { KeyCode.W, 2 },
+        { KeyCode.A, 3 }
+    };
+    
     void Start()
     {
 
@@ -37,23 +46,17 @@ public class AttackHitbox : MonoBehaviour
                 PontoAtaque.SetActive(attacking);
             }
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        // Itera sobre o dicionário para verificar se alguma tecla foi pressionada
+        foreach (var entry in keyToChildIndex)
         {
-            PontoAtaque = transform.GetChild(0).gameObject;
+            if (Input.GetKeyDown(entry.Key))
+            {
+                PontoAtaque = transform.GetChild(entry.Value).gameObject;
+                break; // Opcional, para sair do loop após encontrar a tecla pressionada
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            PontoAtaque = transform.GetChild(1).gameObject;
-        }
-        else if (Input.GetKeyDown(KeyCode.W))
-        {
-            PontoAtaque = transform.GetChild(2).gameObject;
-        }
-        else if (Input.GetKeyDown(KeyCode.A))
-        {
-            PontoAtaque = transform.GetChild(3).gameObject;
-        }
-    }
+    }  
+
 
     private void Attack()
     {
