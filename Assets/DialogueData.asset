@@ -13,13 +13,11 @@ MonoBehaviour:
   m_Name: DialogueData
   m_EditorClassIdentifier: 
   talkScript:
-  - Name: cara
+  - Name: npc
     Text: ehhh...
-  - Name: cara
-    Text: vai tomar no cu
-  - Name: cara
-    Text: "eu sou melhor do que voc\xEA"
   - Name: player
-    Text: akdfjaslfkjaslkdfjaslkfjasfdakjfdakfasdkjfadskj
+    Text: oi leo
   - Name: player
-    Text: vsfd
+    Text: "\xE9 isso que n\xF3s temos, o que achou?"
+  - Name: npc
+    Text: "\xE9 isso a\xED, disse tudo"
