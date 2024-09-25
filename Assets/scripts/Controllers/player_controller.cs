@@ -25,9 +25,12 @@ public class player_controller : MonoBehaviour
     public LayerMask solidObjectsLayer;
     public LayerMask interactablesLayer;
     public Transform npc;
+    private Inventory inventory;
 
     [SerializeField]
     public Direction direcaoMovimento;
+    [SerializeField]
+    private UI_Inventory uiInvetory;
 
 
     void Awake()
@@ -35,6 +38,9 @@ public class player_controller : MonoBehaviour
         state = State.Normal;
         rig = GetComponent<Rigidbody2D>();
         dialogue_System = FindObjectOfType<Dialogue_System>();
+
+        inventory = new Inventory();
+        uiInvetory = FindObjectOfType<UI_Inventory>();
     }
 
     void Start()

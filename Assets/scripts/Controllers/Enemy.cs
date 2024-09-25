@@ -32,8 +32,17 @@ public class Enemy : MonoBehaviour
     }
     void Die()
     {
-            Destroy(gameObject);
-            ExperienceManager.Instance.AddExperience(expAmount);        
+        Destroy(gameObject);
+
+        if (ExperienceManager.Instance != null)
+        {
+            ExperienceManager.Instance.AddExperience(expAmount);
+        }
+        else
+        {
+            Debug.LogWarning("ExperienceManager.Instance não está atribuído.");
+        }
     }
+
 
 }
