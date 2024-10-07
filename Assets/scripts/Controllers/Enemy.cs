@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField]
+    public GameObject BackgroundFight;
+
     public ExperienceManager ExperienceManager;
     int expAmount = 50;
 
@@ -21,14 +24,9 @@ public class Enemy : MonoBehaviour
     }
     public int health = 3;
 
-    public void OnHit(int damage)
+    public void OnHit()
     {
-        Debug.Log("deu dano");
-        Health -= damage;
-        if (health <= 0)
-        {
-            Die();
-        }
+        BackgroundFight.SetActive(true);
     }
     void Die()
     {

@@ -8,10 +8,12 @@ public class AttackArea : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
+        //verifica se ele tá colidindo
         if (collider.GetComponent<Enemy>() != null)
         {
+            //se ele estiver, chama a função OnHit
             Enemy hit = collider.GetComponent<Enemy>();
-            hit.OnHit(damage);
+            hit.OnHit();
         }
     }
 }

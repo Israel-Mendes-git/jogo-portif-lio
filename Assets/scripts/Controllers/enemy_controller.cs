@@ -8,7 +8,7 @@ public class enemy_controller : MonoBehaviour
     private Vector2 direction;
     private Rigidbody2D rig;
 
-    public detection_controller detectionArea;
+    public DetectionController detectionArea;
 
     void Start()
     {
