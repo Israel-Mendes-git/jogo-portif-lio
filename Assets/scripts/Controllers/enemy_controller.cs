@@ -4,36 +4,42 @@ using UnityEngine;
 
 public class enemy_controller : MonoBehaviour
 {
-    public float speed = 2.5f;
-    private Vector2 direction;
-    private Rigidbody2D rig;
+    public float moveSpeed = 2f;
+    Rigidbody2D rig;
+    public Transform target;
+    Vector2 moveDirection;
 
-    public DetectionController detectionArea;
+    public Detection_controller detectionArea;
 
-    void Start()
+    private void Awake()
     {
         rig = GetComponent<Rigidbody2D>();
     }
 
-    
+    void Start()
+    {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
+
     void Update()
-    {
-        direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-    }
-    void FixedUpdate()
-    {
-
-        if (detectionArea != null && detectionArea.detectedObjs.Count > 0)
+    { 
+        if (target)
         {
-            // Pega a posição do primeiro objeto detectado
-            Vector2 targetPosition = detectionArea.detectedObjs[0].transform.position;
-
-            // Calcula a direção em relação ao player detectado
-            direction = (targetPosition - (Vector2)transform.position).normalized;
-
-            // Move o inimigo na direção do jogador
-            rig.MovePosition(rig.position + direction * speed * Time.fixedDeltaTime);
+            moveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         }
-
     }
+
+    private void FixedUpdate()
+    {
+        if(detectionArea.detectedObjs.Count > 0)
+        {
+            moveDirection = (detectionArea.detectedObjs[0].transform.position - transform.position).normalized;
+
+            rig.MovePosition(rig.position + moveDirection * moveSpeed * Time.fixedDeltaTime);
+        }
+        
+    }
+    
 }
+

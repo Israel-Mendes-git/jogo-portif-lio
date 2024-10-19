@@ -23,35 +23,9 @@ public class entity
     public int points = 0;
     public int agility = 1;
 
-    [Header("Experience")]
-    public int currentExp;
-    public int maxExp;
-    public int currentlvl;
+   
 
-    private void OnEnable()
-    {
-        ExperienceManager.Instance.OnExperienceChange += HandleExperienceChange;
-    }
-    private void OnDisable()
-    {
-        ExperienceManager.Instance.OnExperienceChange -= HandleExperienceChange;
-    }
-    private void HandleExperienceChange(int newExperience)
-    {
-        currentExp += newExperience;    
-        if (currentExp >= maxExp )
-        {
-            LevelUp();
-        }
-    }
-
-    private void LevelUp()
-    {
-        points++;
-        currentExp = 0;
-        currentlvl++;
-        maxExp += 50;
-    }
+  
 
 
 }

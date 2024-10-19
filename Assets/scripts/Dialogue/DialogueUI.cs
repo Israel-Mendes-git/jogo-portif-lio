@@ -43,6 +43,7 @@ public class DialogueUI : MonoBehaviour
     {
         background.fillAmount = 0;
         open = true;
+        
     }
 
     public void Disable()
@@ -50,6 +51,9 @@ public class DialogueUI : MonoBehaviour
         open = false;
         nameText.text = "";
         talkText.text = "";
+        
+
+        
     }
 
 }
