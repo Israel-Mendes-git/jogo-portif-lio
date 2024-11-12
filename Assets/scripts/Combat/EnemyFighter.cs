@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Combat;
 
 public class EnemyFighter : Fighter // Classe que representa um lutador inimigo, herda de Fighter
 {

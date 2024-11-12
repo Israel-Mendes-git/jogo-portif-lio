@@ -8,13 +8,13 @@ public class Menu : MonoBehaviour
 
     public void LoadScene(string cena)
     {
-        SceneManager.LoadScene(cena);
-        Debug.Log("pressionou");
-        
+        //carrega a cena 
+        SceneManager.LoadScene(cena);        
     }
 
     public void QuitGame()
     {
+        //sai da aplicação 
         Application.Quit();
     }
 

@@ -1,49 +1,52 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Combat; // Importa o namespace Combat
 
-// Classe abstrata que serve como base para todos os lutadores
 public abstract class Fighter : MonoBehaviour
 {
-    //=====VARIÁVEIS DO FIGHTER=====//
     public string idName; // Nome do lutador
     public StatusPanel statusPanel; // Painel de status associado ao lutador
-
     public CombatManager combatManager; // Gerenciador de combate
 
+    protected bool isAlive => stats.Health > 0; // Altere para:
+    public bool IsAlive => stats.Health > 0; // Agora ï¿½ pï¿½blico
+
     public List<StatusMod> statusMods;
+    protected Stats stats; // Supondo que vocï¿½ tenha uma classe Stats definida em outro lugar
+    public Skill[] skills;
+ 
+    public float CurrentHealth => stats.Health; // Acesso ï¿½ propriedade
+    public float MaxHealth => stats.MaxHealth; // Acesso ï¿½ propriedade
+    public int Level => stats.Level; // Acesso ï¿½ propriedade
 
-    protected Stats stats; // Estatísticas do lutador (health, attack, etc.)
-
-    protected Skill[] skills; // Corrigido para Skill com letra maiúscula
-
-    public bool isAlive
+    public void InitializeStatsPanel( float Health, float maxHealth, int level)
     {
-        get => this.stats.health > 0; // Retorna se o lutador está vivo
+        statusPanel.SetHealth(Health, maxHealth); // Atualiza o painel de status
+        statusPanel.SetStats(idName, Health, maxHealth, level);
     }
 
-    // Método chamado no início da vida do objeto
-    protected virtual void Start()
+    protected virtual void InitializeStats(float initialHealth, float maxHealth, int level)
     {
-        // Configura o painel de status com o nome e as estatísticas do lutador
-        this.statusPanel.SetStats(this.idName, this.stats);
-        this.skills = this.GetComponentsInChildren<Skill>(); // Obtém as habilidades do lutador
+        stats = new Stats(level, maxHealth, initialHealth, 0, 0); // Passando os parï¿½metros corretos
 
-        this.statusMods = new List<StatusMod>();
     }
+    
 
-    // Método para modificar a saúde do lutador
     public void ModifyHealth(float amount)
     {
-        // Ajusta a saúde, garantindo que não ultrapasse os limites (0 a maxHealth)
-        this.stats.health = Mathf.Clamp(this.stats.health + amount, 0f, this.stats.maxHealth);
+        if (stats == null)
+        {
+            Debug.LogError("Stats nï¿½o inicializado!");
+            return;
+        }
 
-        this.stats.health = Mathf.Round(this.stats.health);
-        // Atualiza o painel de status com a nova saúde
-        this.statusPanel.SetHealth(this.stats.health, this.stats.maxHealth);
+        stats.AdjustHealth(amount); // Ajusta a saï¿½de
+        statusPanel.SetHealth(stats.Health, stats.MaxHealth); // Atualiza o painel de status
     }
 
-    // Método para obter as estatísticas atuais do lutador
+
+
+    // Mï¿½todo para obter as estatï¿½sticas atuais do lutador
     public Stats GetCurrentStats()
     {
         Stats modedStats = this.stats;
@@ -53,9 +56,9 @@ public abstract class Fighter : MonoBehaviour
             modedStats = mod.Apply(modedStats);
         }
 
-        return modedStats; // Retorna as estatísticas atuais
+        return modedStats; // Retorna as estatï¿½sticas atuais
     }
-
-    // Método abstrato que deve ser implementado pelas classes que herdam de Fighter
-    public abstract void InitTurn(); // Método para iniciar o turno do lutador
+    
+    // Mï¿½todo abstrato que deve ser implementado pelas classes que herdam de Fighter
+    public abstract void InitTurn(); // Mï¿½todo para iniciar o turno do lutador
 }

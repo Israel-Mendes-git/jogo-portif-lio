@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Combat;
 
 public enum StatusModType
 {
@@ -17,19 +18,26 @@ public class StatusMod : MonoBehaviour
     {
         Stats modedStats = stats.Clone();
 
-        switch(this.type)
+        switch (this.type)
         {
             case StatusModType.ATTACK_MOD:
-                modedStats.attack += this.amount;
+                modedStats.Attack += this.amount; // Usar a propriedade Attack
                 break;
 
             case StatusModType.DEFFENSE_MOD:
-                modedStats.defense += this.amount;
+                modedStats.Defense += this.amount; // Usar a propriedade Defense
                 break;
         }
 
         return modedStats;
     }
 
-
+    public void ApplyMod(Stats stats)
+    {
+        // Acesse as propriedades corretamente
+        float attackValue = stats.Attack; // Correto
+        float defenseValue = stats.Defense; // Correto
+        // ...
+    }
 }
+

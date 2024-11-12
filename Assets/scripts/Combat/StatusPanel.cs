@@ -8,18 +8,20 @@ public class StatusPanel : MonoBehaviour
     //===== VARIÁVEIS DO STATUS PANEL =====//
     public Text nameLabel; // Texto para exibir o nome do lutador
     public Text levelLabel; // Texto para exibir o nível do lutador
-
     public Slider healthSlider; // Slider para mostrar a saúde do lutador
     public Image healthSliderBar; // Imagem que representa a barra de saúde
     public Text healthLabel; // Texto para exibir a quantidade de saúde
 
+   
+
     // Método para definir as estatísticas do lutador
-    public void SetStats(string name, Stats stats)
+    public void SetStats(string name, float health, float maxHealth, int level)
     {
         nameLabel.text = name; // Atualiza o nome do lutador
-        levelLabel.text = $"N. {stats.level}"; // Atualiza o nível do lutador
-        SetHealth(stats.health, stats.maxHealth); // Chama o método para atualizar a saúde
+        levelLabel.text = $"N. {level}"; // Atualiza o nível do lutador
+        SetHealth(health, maxHealth); // Chama o método para atualizar a saúde
     }
+
 
     // Método para definir a saúde do lutador
     public void SetHealth(float health, float maxHealth)
@@ -30,13 +32,8 @@ public class StatusPanel : MonoBehaviour
         healthSlider.value = percentage; // Atualiza o slider de saúde
 
         // Muda a cor da barra de saúde se a saúde estiver baixa
-        if (percentage < 0.33f)
-        {
-            healthSliderBar.color = Color.red; // Se a saúde estiver abaixo de 33%, a barra fica vermelha
-        }
-        else
-        {
-            healthSliderBar.color = Color.green;
-        }
+        healthSliderBar.color = percentage < 0.33f ? Color.red : Color.green;
     }
+
+    
 }

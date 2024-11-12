@@ -1,65 +1,69 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Combat;
 
-// Enum para definir os tipos de modificação de saúde
+
+// Enum para definir os tipos de modificaï¿½ï¿½o de saï¿½de
 public enum HealthModType
 {
-    STAT_BASED, // Baseado em estatísticas
+    STAT_BASED, // Baseado em estatï¿½sticas
     FIXED,      // Fixo
     PERCENTAGE  // Percentual
 }
 
-// Classe que representa uma habilidade que modifica a saúde
-public class HealthModSkill : Skill // Corrigido para herdar de Skill com letra maiúscula
+// Classe que representa uma habilidade que modifica a saï¿½de
+public class HealthModSkill : Skill // Corrigido para herdar de Skill com letra maiï¿½scula
 {
     [Header("Health Mod")]
     public float amount; // Quantidade a ser modificada
 
-    public HealthModType modType; // Tipo de modificação de saúde
+    public HealthModType modType; // Tipo de modificaï¿½ï¿½o de saï¿½de
 
     [Range(0f, 1f)]
     public float critChance = 0;
 
-    // Método que executa a habilidade
+    // Mï¿½todo que executa a habilidade
     protected override void OnRun()
     {
-        float amount = this.GetModification(); // Obtém a quantidade de modificação
+        float amount = this.GetModification(); // Obtï¿½m a quantidade de modificaï¿½ï¿½o
 
         float dice = Random.Range(0f, 1f);
 
-        if(dice <= this.critChance)
+        if (dice <= this.critChance)
         {
             amount *= 2f;
-            this.messages.Enqueue("Acerto crítico!");
+            this.messages.Enqueue("Acerto crÃ­tico!");
         }
 
-        this.receiver.ModifyHealth(amount); // Modifica a saúde do receptor
+        this.receiver.ModifyHealth(amount); // Modifica a saï¿½de do receptor
+        
     }
 
-    // Método que calcula a modificação com base no tipo
+    // Mï¿½todo que calcula a modificaï¿½ï¿½o com base no tipo
+    // Mï¿½todo que calcula a modificaï¿½ï¿½o com base no tipo
     public float GetModification()
     {
         switch (this.modType)
         {
             case HealthModType.STAT_BASED:
-                Stats emitterStats = this.emitter.GetCurrentStats(); // Estatísticas do emissor
-                Stats receiverStats = this.receiver.GetCurrentStats(); // Estatísticas do receptor
+                Stats emitterStats = this.emitter.GetCurrentStats(); // Estatï¿½sticas do emissor
+                Stats receiverStats = this.receiver.GetCurrentStats(); // Estatï¿½sticas do receptor
 
-                // Cálculo de dano bruto
-                float rawDamage = (((2 * emitterStats.level) / 5) + 2) * this.amount * (emitterStats.attack / receiverStats.defense);
+                // Cï¿½lculo de dano bruto
+                float rawDamage = (((2 * emitterStats.Level) / 5) + 2) * this.amount * (emitterStats.Attack / receiverStats.Defense);
 
-                return (rawDamage / 50) + 2; // Retorna a modificação de saúde
+                return (rawDamage / 50) + 2; // Retorna a modificaï¿½ï¿½o de saï¿½de
 
             case HealthModType.FIXED:
                 return this.amount; // Retorna a quantidade fixa
 
             case HealthModType.PERCENTAGE:
-                Stats rStats = this.receiver.GetCurrentStats(); // Estatísticas do receptor
+                Stats rStats = this.receiver.GetCurrentStats(); // Estatï¿½sticas do receptor
 
-                return rStats.maxHealth * this.amount; // Retorna a modificação percentual
+                return rStats.MaxHealth * this.amount; // Use MaxHealth com "M" maiï¿½sculo
         }
 
-        throw new System.InvalidOperationException("HealthModSkill::GetModification.Unreachable!"); // Exceção caso o código não entre em nenhum caso
+        throw new System.InvalidOperationException("HealthModSkill::GetModification.Unreachable!"); // Exceï¿½ï¿½o caso o cï¿½digo nï¿½o entre em nenhum caso
     }
 }

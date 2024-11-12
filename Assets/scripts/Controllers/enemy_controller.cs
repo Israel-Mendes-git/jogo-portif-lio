@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class enemy_controller : MonoBehaviour
 {
+//===VARIÁVEIS DO ENEMY CONTROLLER===//
     public float moveSpeed = 2f;
     Rigidbody2D rig;
     public Transform target;
     Vector2 moveDirection;
-
     public Detection_controller detectionArea;
 
     private void Awake()
     {
+        //atribui um componente de física a uma variável 
         rig = GetComponent<Rigidbody2D>();
     }
 
     void Start()
     {
+        //a variável target recebe o valor do game object com a tag player 
         target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
@@ -25,15 +27,18 @@ public class enemy_controller : MonoBehaviour
     void Update()
     { 
         if (target)
-        {
+        {   
+            //armazena a direção horizontal e vertical do movimento em um vetor 2d
             moveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         }
     }
 
     private void FixedUpdate()
     {
+        //caso a quantidade de objetos dentro da área de detecção seja maior que 0 
         if(detectionArea.detectedObjs.Count > 0)
         {
+            //a direção do movimento do inimigo é até o player 
             moveDirection = (detectionArea.detectedObjs[0].transform.position - transform.position).normalized;
 
             rig.MovePosition(rig.position + moveDirection * moveSpeed * Time.fixedDeltaTime);

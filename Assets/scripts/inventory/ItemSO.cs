@@ -18,7 +18,7 @@ public class ItemSO : ScriptableObject
     {
         if(statToChange == StatToChange.health)
         { 
-
+            
         }
         
     }

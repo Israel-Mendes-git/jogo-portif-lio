@@ -516,6 +516,7 @@ MonoBehaviour:
   fighters:
   - {fileID: 570321923}
   - {fileID: 914798040}
+  statusPanel: {fileID: 8914409813381001318}
   cena: joguinho
 --- !u!4 &294852632
 Transform:
@@ -732,7 +733,17 @@ MonoBehaviour:
   statusPanel: {fileID: 8914409813381001318}
   combatManager: {fileID: 294852631}
   statusMods: []
+  skills:
+  - {fileID: 1781422872}
+  - {fileID: 1011097203}
+  - {fileID: 260273052}
+  - {fileID: 892596946}
   skillPanel: {fileID: 1770871913}
+  skills:
+  - {fileID: 1781422872}
+  - {fileID: 1011097203}
+  - {fileID: 260273052}
+  - {fileID: 892596946}
 --- !u!224 &570321924
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1310,6 +1321,11 @@ MonoBehaviour:
   statusPanel: {fileID: 1640802471}
   combatManager: {fileID: 294852631}
   statusMods: []
+  skills:
+  - {fileID: 606733318}
+  - {fileID: 1011097203}
+  - {fileID: 892596946}
+  - {fileID: 248137153}
 --- !u!4 &914798041
 Transform:
   m_ObjectHideFlags: 0
@@ -2718,6 +2734,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1996675345}
     m_Modifications:
+    - target: {fileID: 7053956813009308886, guid: 97a199bfd16c50744a9c2067ec029abf, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7117875883357810532, guid: 97a199bfd16c50744a9c2067ec029abf, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

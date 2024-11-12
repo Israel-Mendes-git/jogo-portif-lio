@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Combat;
 
 public enum CombatStatus
 {
@@ -14,37 +15,50 @@ public enum CombatStatus
 
 public class CombatManager : MonoBehaviour
 {
-    //=====VARIÁVEIS DO COMBAT MANAGER=====//
+    //=====VARIï¿½VEIS DO COMBAT MANAGER=====//
     public Fighter[] fighters; // Array de lutadores envolvidos na batalha
-    private int fighterIndex; // Índice do lutador atual que está fazendo o turno
+    private int fighterIndex; // ï¿½ndice do lutador atual que estï¿½ fazendo o turno
 
-    private bool isCombatActive; // Indica se a batalha está ativa
+    private bool isCombatActive; // Indica se a batalha estï¿½ ativa
 
     private CombatStatus combatStatus;
 
     private Skill currentFighterSkill;
+    public StatusPanel statusPanel;
+    public Stats stats;
+
 
     public string cena;
 
     void Start()
     {
-        // Informa que a batalha começou
-        LogPanel.Write("A batalha começou.");
+        statusPanel = FindObjectOfType<StatusPanel>();
 
-        foreach(var fgtr in this.fighters)
+        // Cria uma nova instÃ¢ncia de Stats para o CombatManager, com valores iniciais
+        stats = new Stats(1, 100, 10, 5, 3); // Exemplo de valores iniciais: level 1, maxHealth 100, attack 10, defense 5, spirit 3
+
+        foreach (var fighter in this.fighters)
         {
-            fgtr.combatManager = this;
+            if (fighter == null)
+            {
+                Debug.LogError("Um dos objetos Fighter no array fighters estÃ¡ null.");
+            }
+            else
+            {
+                fighter.combatManager = this; // Atribui o CombatManager
+                fighter.InitializeStatsPanel(fighter.CurrentHealth, fighter.MaxHealth, fighter.Level); // Inicializa o painel de status
+            }
         }
 
-
         this.combatStatus = CombatStatus.NEXT_TURN;
-
-        this.fighterIndex = -1; // Inicializa o índice do lutador para o primeiro
-        this.isCombatActive = true; // Define que o combate está ativo
+        this.fighterIndex = -1; // Inicializa o Ã­ndice do lutador para o primeiro
+        this.isCombatActive = true; // Define que o combate estÃ¡ ativo
         StartCoroutine(this.CombatLoop()); // Inicia o loop de combate
     }
 
-    // Coroutine que controla a sequência de turnos dos lutadores
+
+
+    // Coroutine que controla a sequï¿½ncia de turnos dos lutadores
     IEnumerator CombatLoop()
     {
         while (this.isCombatActive) // Enquanto o combate estiver ativo
@@ -88,13 +102,17 @@ public class CombatManager : MonoBehaviour
                 case CombatStatus.CHECK_FOR_VICTORY:
                     foreach (var fgtr in this.fighters)
                     {
-                        if(fgtr.isAlive == false)
+                        if (!fgtr.IsAlive) 
                         {
                             this.isCombatActive = false;
 
-                            LogPanel.Write("Vitória!");
+                            LogPanel.Write("VitÃ³ria!");
 
+                            Debug.Log($"Fighter: {fgtr.idName}, Current Health: {fgtr.CurrentHealth}, Max Health: {fgtr.MaxHealth}");
+
+                            // Carrega a prï¿½xima cena
                             SceneManager.LoadScene(cena);
+
                         }
                         else
                         {
@@ -103,17 +121,20 @@ public class CombatManager : MonoBehaviour
                     }
                     yield return null;
                     break;
+
                 case CombatStatus.NEXT_TURN:
                     yield return new WaitForSeconds(1f);
-                    // Atualiza o índice para o próximo lutador, voltando ao início se chegar ao final
+                    // Atualiza o ï¿½ndice para o prï¿½ximo lutador, voltando ao inï¿½cio se chegar ao final
                     this.fighterIndex = (this.fighterIndex + 1) % this.fighters.Length;
+                    Debug.Log(fighterIndex);
 
-                    // Obtém o lutador atual baseado no índice
+                    // Obtï¿½m o lutador atual baseado no ï¿½ndice
                     var currentTurn = this.fighters[this.fighterIndex];
+                    Debug.Log(currentTurn);
 
-                    // Informa quem é o lutador da vez
-                    LogPanel.Write($"{currentTurn.idName} é o seu turno.");
-                    currentTurn.InitTurn(); // Chama o método para iniciar o turno do lutador 
+                    // Informa quem ï¿½ o lutador da vez
+                    LogPanel.Write($"{currentTurn.idName} Ã© o seu turno.");
+                    currentTurn.InitTurn(); // Chama o mï¿½todo para iniciar o turno do lutador 
 
                     this.combatStatus = CombatStatus.WAITING_FOR_FIGHTER;
 

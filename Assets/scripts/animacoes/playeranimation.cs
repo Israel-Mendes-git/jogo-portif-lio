@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/*função que identifica se o player está andando para a direita, esquerda, cima ou baixo 
+  e seta a imagem/animação que vai mostrada na tela*/
 
 public class playeranimation : MonoBehaviour
 {
