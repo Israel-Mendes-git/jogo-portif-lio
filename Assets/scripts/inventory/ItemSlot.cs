@@ -37,10 +37,13 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 
     private InventoryManager inventoryManager;
 
-    private void Start()
+    private void Awake()
     {
+        EmptySlot();
         inventoryManager = GameObject.Find("Canvas").GetComponent<InventoryManager>();
+
     }
+    
     
     public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription)
     {
@@ -110,9 +113,40 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         }
     }
 
+    private void EmptySlot()
+    {
+        quantityText.enabled = false;
+        itemImage.sprite = emptySprite;
+
+        ItemDescriptionNameText.text = "";
+        ItemDescriptionText.text = "";
+        itemDescriptionImage.sprite = emptySprite;
+
+    }
+
     public void OnRightClick ()
     {
+        GameObject itemToDrop = new GameObject(itemName);
+        Item newItem = itemToDrop.AddComponent<Item>();
+        newItem.quantity = 1;
+        newItem.itemName = itemName;
+        newItem.sprite = itemSprite;
+        newItem.itemDescription = itemDescription;
 
+        SpriteRenderer sr = itemToDrop.AddComponent<SpriteRenderer>();
+        sr.sprite = itemSprite;
+        sr.sortingOrder = 5;
+        sr.sortingLayerName = "Ground";
+
+        itemToDrop.AddComponent<BoxCollider2D>();
+
+        itemToDrop.transform.position = GameObject.FindWithTag("Player").transform.position + new Vector3(1, 0, 0);
+        itemToDrop.transform.localScale = new Vector3(.5f, .5f, .5f);
+
+        this.quantity -= 1;
+        quantityText.text = this.quantity.ToString();
+        if (this.quantity <= 0)
+            EmptySlot();
     }
 
 }

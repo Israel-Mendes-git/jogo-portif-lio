@@ -46,7 +46,7 @@ public class InventoryManager : MonoBehaviour
     {
         for (int i = 0; i < itemSlot.Length; i++)
         {
-            if (!itemSlot[i].isFull)
+            if (itemSlot[i].isFull == false && itemSlot[i].name == name || itemSlot[i].quantity == 0)
             {
                 int leftOverItems = itemSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription);
                 if (leftOverItems > 0)
@@ -60,7 +60,7 @@ public class InventoryManager : MonoBehaviour
         return quantity; // Retorna a quantidade restante se não couber em nenhum slot
     }
 
-    // Método para deselecionar todos os slots do inventário
+    // Método para desselecionar todos os slots do inventário
     public void DeselectAllSlots()
     {
         for (int i = 0; i < itemSlot.Length; i++)
