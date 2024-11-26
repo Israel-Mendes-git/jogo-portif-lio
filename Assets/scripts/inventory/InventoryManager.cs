@@ -8,6 +8,7 @@ public class InventoryManager : MonoBehaviour
     private bool menuActivated;
     public ItemSlot[] itemSlot;
     public ItemSO[] itemSOs;
+    
 
     // Update is called once per frame
     void Update()
@@ -58,6 +59,7 @@ public class InventoryManager : MonoBehaviour
             }
         }
         return quantity; // Retorna a quantidade restante se não couber em nenhum slot
+
     }
 
     // Método para desselecionar todos os slots do inventário

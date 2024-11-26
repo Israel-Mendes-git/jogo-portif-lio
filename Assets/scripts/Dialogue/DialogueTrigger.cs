@@ -37,5 +37,9 @@ public class DialogueTrigger : MonoBehaviour
         {
             TriggerDialogue();
         }
+        else
+        {
+            DialogueManager.Instance.EndDialogue();
+        }
     }
 }

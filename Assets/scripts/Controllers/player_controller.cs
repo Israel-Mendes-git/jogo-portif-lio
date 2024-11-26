@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 //requer o componente do tipo player 
 [RequireComponent(typeof(player))]
 
-public class player_controller : MonoBehaviour, IDataPersistence
+public class player_controller : MonoBehaviour
 {
 //===VARIÁVEIS DO PLAYER CONTROLLER===//
     //varíaveis de componentes
@@ -75,6 +75,11 @@ public class player_controller : MonoBehaviour, IDataPersistence
         //chama a função de corrida do player
         PlayerRun();
 
+        if(DialogueManager.Instance.isDialogueActive)
+        {
+            horizontal = 0f;
+            return;
+        }
        
         horizontal = Input.GetAxisRaw("Horizontal");    
 
@@ -95,6 +100,11 @@ public class player_controller : MonoBehaviour, IDataPersistence
         {
             PauseScreen();
         }
+
+        PlayerPrefs.SetFloat("x", transform.position.x);
+        PlayerPrefs.SetFloat("y", transform.position.y);
+        PlayerPrefs.SetFloat("z", transform.position.z);
+
     }
 
     public void LoadData(GameData data)

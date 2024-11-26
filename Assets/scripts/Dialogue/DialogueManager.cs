@@ -16,19 +16,25 @@ public class DialogueManager : MonoBehaviour
     private Queue<DialogueLine> lines;
 
     public bool isDialogueActive = false;
+    public GameObject dialogueBox;
 
     public float typingSpeed = 0.2f;
 
     // Start is called before the first frame update
     private void Start()
     {
-        if(Instance == null)
+        if (Instance == null)
             Instance = this;
+
+        lines = new Queue<DialogueLine>();
+        dialogueBox.SetActive(false);
     }
+
 
     public void StartDialogue(Dialogue dialogue)
     {
         isDialogueActive = true;
+        dialogueBox.SetActive(true);
         lines.Clear();
         foreach(DialogueLine dialogueLine in dialogue.dialogueLines)
         {
@@ -64,8 +70,11 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    void EndDialogue()
+    public void EndDialogue()
     {
         isDialogueActive = false;
+        dialogueArea.text = "";
+        dialogueBox.SetActive(false);
+
     }
 }

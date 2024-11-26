@@ -12551,7 +12551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4214592829757805940, guid: 38d143d09368d074d83b4bd3d507e262, type: 3}
       propertyPath: cena
-      value: biblioteca
+      value: Combat
       objectReference: {fileID: 0}
     - target: {fileID: 4214592829757805940, guid: 38d143d09368d074d83b4bd3d507e262, type: 3}
       propertyPath: sceneToLoad

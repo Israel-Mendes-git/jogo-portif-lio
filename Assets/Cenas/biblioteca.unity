@@ -1478,6 +1478,8 @@ MonoBehaviour:
     voc\xEA entrar em contato com a floresta, ele vai entrar na sua mente e quanto
     mais tempo voc\xEA passar na floresta mais fundo ele vai entrar na sua mente,
     fazendo a sa\xEDda da floresta ficar pior, isso quem conseguiu sair.\r\n"
+  itemId: 0
+  amountInStack: 0
 --- !u!212 &170262283
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1581,8 +1583,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 366, y: -478}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 349.6162, y: -475.37857}
+  m_SizeDelta: {x: 192.7676, y: 35.2429}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &185410712
 MonoBehaviour:
@@ -1628,13 +1630,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 356602119}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 356602122}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: DisplayNextDialogueLine
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1660,8 +1662,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 45c84ff05a544df4aa1b31ee2ba34fe7, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1669,7 +1671,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.01
 --- !u!222 &185410714
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1922,6 +1924,8 @@ MonoBehaviour:
     dizem que ela andava tendo comportamentos estranhos, depois de um passeio que
     foi dar sozinha e nesse mesmo passeio acabou indo at\xE9 a Floresta dos Horrores.
     Ser\xE1 que as lendas da floresta s\xE3o mesmo verdadeiras?\r\n"
+  itemId: 0
+  amountInStack: 0
 --- !u!212 &251927900
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2587,7 +2591,6 @@ RectTransform:
   - {fileID: 1997206245}
   - {fileID: 2063862603}
   - {fileID: 185410711}
-  - {fileID: 1944031562}
   m_Father: {fileID: 1778220799}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2655,8 +2658,9 @@ MonoBehaviour:
   characterIcon: {fileID: 1997206246}
   characterName: {fileID: 849977528}
   dialogueArea: {fileID: 1952356691}
-  isDialogueActive: 1
-  typingSpeed: 0.2
+  isDialogueActive: 0
+  dialogueBox: {fileID: 356602119}
+  typingSpeed: 0.1
 --- !u!1 &366331631
 GameObject:
   m_ObjectHideFlags: 0
@@ -2927,14 +2931,15 @@ PolygonCollider2D:
       - {x: -0.12159884, y: 9.495034}
       - {x: -13.633198, y: 9.552347}
       - {x: -13.592908, y: -10.81047}
-      - {x: -7.311884, y: -10.783788}
-      - {x: -5.4090924, y: -10.925668}
+      - {x: -8.228939, y: -10.704043}
+      - {x: -8.339684, y: -12.879395}
       - {x: -5.499193, y: -12.724746}
       - {x: -1.9477797, y: -12.675923}
       - {x: -1.6421494, y: -12.767355}
-      - {x: -1.6835623, y: -10.903654}
-      - {x: -0.6481724, y: -10.737992}
-      - {x: 0.23043108, y: -10.808221}
+      - {x: -0.76650673, y: -12.897253}
+      - {x: 0.6215402, y: -12.809135}
+      - {x: 0.5878589, y: -11.116776}
+      - {x: 0.609216, y: -10.828156}
       - {x: 13.273706, y: -10.874724}
       - {x: 13.203953, y: -2.9856286}
       - {x: 13.177235, y: -1.5350119}
@@ -4919,17 +4924,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 849977526}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1944031562}
+  m_Father: {fileID: 2063862603}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -342.7464, y: -2.3018}
-  m_SizeDelta: {x: 197.4928, y: 45.396}
+  m_AnchoredPosition: {x: -232.1128, y: 81.47705}
+  m_SizeDelta: {x: 285.2672, y: 40.6256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &849977528
 MonoBehaviour:
@@ -5144,6 +5149,8 @@ MonoBehaviour:
     vezes penso em dar um fim na minha vida e acabar esse terr\xEDvel tormento. Espero
     que possa me perdoar se um dia isso acontecer minha raposinha.\r\n                                     
     Seu, Nicolas"
+  itemId: 0
+  amountInStack: 0
 --- !u!212 &857482232
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6191,13 +6198,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1101168426}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1226.9, y: -431.1, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 29.948242, y: 17.68863, z: -4.10262}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 421714912}
-  m_Father: {fileID: 1353112485}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1130644507
 GameObject:
@@ -6420,7 +6427,8 @@ GameObject:
   - component: {fileID: 1169413764}
   - component: {fileID: 1169413763}
   - component: {fileID: 1169413762}
-  m_Layer: 6
+  - component: {fileID: 1169413766}
+  m_Layer: 3
   m_Name: Npc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6459,8 +6467,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.11654663}
-  m_Size: {x: 1, y: 1.1895733}
+  m_Offset: {x: 0.18827978, y: -0.57361174}
+  m_Size: {x: 4.389037, y: 8.852732}
   m_Direction: 0
 --- !u!50 &1169413763
 Rigidbody2D:
@@ -6530,8 +6538,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.14918981, g: 0.33962262, b: 0.120149516, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 6f2e6e5a0607d2a49b499c4f841d41f6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6550,12 +6558,40 @@ Transform:
   m_GameObject: {fileID: 1169413761}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1246.0983, y: -442.61862, z: 4.10262}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1250.9, y: -443.41, z: 4.10262}
+  m_LocalScale: {x: 0.1715, y: 0.1696, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 83807189}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1169413766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169413761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc03c3596acf3ad48a4e98911e2391cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    dialogueLines:
+    - character:
+        name: Player
+        icon: {fileID: 21300000, guid: 3bc0a8fc0d3e5fc4db0278ce94cf3969, type: 3}
+      line: eae cara
+    - character:
+        name: Player
+        icon: {fileID: 21300000, guid: 3bc0a8fc0d3e5fc4db0278ce94cf3969, type: 3}
+      line: "como que voc\xEA t\xE1?"
+    - character:
+        name: Player
+        icon: {fileID: 21300000, guid: 3bc0a8fc0d3e5fc4db0278ce94cf3969, type: 3}
+      line: 'deu certo?
+
+'
 --- !u!1 &1171673595
 GameObject:
   m_ObjectHideFlags: 0
@@ -8044,6 +8080,8 @@ MonoBehaviour:
   quantity: 1
   sprite: {fileID: 21300000, guid: d53977f658ac5794295c9f4db3caf5a1, type: 3}
   itemDescription: "Um livro com v\xE1rias hist\xF3rias achado na biblioteca "
+  itemId: 0
+  amountInStack: 0
 --- !u!1 &1204664222
 GameObject:
   m_ObjectHideFlags: 0
@@ -8804,7 +8842,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1101168427}
   - {fileID: 1413350953}
   - {fileID: 1860715537}
   m_Father: {fileID: 0}
@@ -14867,6 +14904,8 @@ MonoBehaviour:
   quantity: 1
   sprite: {fileID: 21300000, guid: d71e6e4659d946145a046df634aa07fc, type: 3}
   itemDescription: "este \xE9 o mapa da floresta "
+  itemId: 0
+  amountInStack: 0
 --- !u!212 &1562911502
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16749,7 +16788,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.7283019, g: 0.5855356, b: 0.22948377, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -17478,82 +17517,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1944031561
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1944031562}
-  - component: {fileID: 1944031564}
-  - component: {fileID: 1944031563}
-  m_Layer: 5
-  m_Name: Header
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1944031562
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1944031561}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 849977527}
-  m_Father: {fileID: 356602120}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000061038, y: -281.75}
-  m_SizeDelta: {x: 921.36, y: 40.793}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1944031563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1944031561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.16981131, g: 0.14193662, b: 0.14193662, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1944031564
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1944031561}
-  m_CullTransparentMesh: 1
 --- !u!1 &1947709626
 GameObject:
   m_ObjectHideFlags: 0
@@ -17718,8 +17681,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.6268, y: -17.5502}
-  m_SizeDelta: {x: 870.6687, y: 122.708}
+  m_AnchoredPosition: {x: 1.1809, y: -0.18974}
+  m_SizeDelta: {x: 853.0305, y: 122.708}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1952356691
 MonoBehaviour:
@@ -17741,7 +17704,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "esta \xE9 uma linha de di\xE1logo"
+  m_text: "essa \xE9 uma linha de dialogo "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -17959,7 +17922,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1545950727, guid: 14dac054b0ff9f74a87ba14d567f2883, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -18157,8 +18120,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0790001, y: -0.026367653}
-  m_Size: {x: 4.525589, y: 9.37265}
+  m_Offset: {x: -0.07900005, y: -1.3877103}
+  m_Size: {x: 4.525612, y: 6.6499496}
   m_Direction: 0
 --- !u!212 &2001791870
 SpriteRenderer:
@@ -18537,12 +18500,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1952356690}
+  - {fileID: 849977527}
   m_Father: {fileID: 356602120}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000095367, y: -354.88342}
-  m_SizeDelta: {x: 921.359, y: 187.0565}
+  m_AnchoredPosition: {x: 17, y: -341.94}
+  m_SizeDelta: {x: 930.4476, y: 231.64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2063862604
 MonoBehaviour:
@@ -18557,15 +18521,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 9497e67ea5dfd494e8489ceb085042dd, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -18573,7 +18537,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 999
 --- !u!222 &2063862605
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18895,7 +18859,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4214592829757805940, guid: 38d143d09368d074d83b4bd3d507e262, type: 3}
       propertyPath: cena
-      value: joguinho
+      value: Quarto1
       objectReference: {fileID: 0}
     - target: {fileID: 4214592829757805940, guid: 38d143d09368d074d83b4bd3d507e262, type: 3}
       propertyPath: sceneToLoad
@@ -18925,6 +18889,7 @@ SceneRoots:
   - {fileID: 1755502027}
   - {fileID: 1303910260}
   - {fileID: 1178487033}
+  - {fileID: 1101168427}
   - {fileID: 1353112485}
   - {fileID: 83807189}
   - {fileID: 2001791871}

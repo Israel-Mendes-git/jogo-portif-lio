@@ -14,6 +14,8 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     public bool isFull;
     public string itemDescription;
     public Sprite emptySprite;
+    public Item slotsItem; // Referência ao item armazenado no slot
+    public int amountInStack;
 
     [SerializeField]
     private int maxNumberOfItems;
@@ -115,20 +117,32 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 
     private void EmptySlot()
     {
+        itemName = null;
+        itemSprite = null;
+        itemDescription = null;
+        quantity = 0;
+        isFull = false;
+
         quantityText.enabled = false;
         itemImage.sprite = emptySprite;
 
         ItemDescriptionNameText.text = "";
         ItemDescriptionText.text = "";
         itemDescriptionImage.sprite = emptySprite;
-
     }
 
-    public void OnRightClick ()
+
+    public void OnRightClick()
     {
+        if (quantity <= 0)
+        {
+            Debug.LogWarning("Não há itens para descartar.");
+            return;
+        }
+
         GameObject itemToDrop = new GameObject(itemName);
         Item newItem = itemToDrop.AddComponent<Item>();
-        newItem.quantity = 1;
+        newItem.quantity = 1; // Ajuste para dropar apenas 1 unidade
         newItem.itemName = itemName;
         newItem.sprite = itemSprite;
         newItem.itemDescription = itemDescription;
@@ -139,14 +153,16 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         sr.sortingLayerName = "Ground";
 
         itemToDrop.AddComponent<BoxCollider2D>();
-
         itemToDrop.transform.position = GameObject.FindWithTag("Player").transform.position + new Vector3(1, 0, 0);
-        itemToDrop.transform.localScale = new Vector3(.5f, .5f, .5f);
+        itemToDrop.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
 
+        // Atualiza o slot
         this.quantity -= 1;
-        quantityText.text = this.quantity.ToString();
+        quantityText.text = this.quantity > 0 ? this.quantity.ToString() : "";
+
         if (this.quantity <= 0)
             EmptySlot();
     }
+
 
 }

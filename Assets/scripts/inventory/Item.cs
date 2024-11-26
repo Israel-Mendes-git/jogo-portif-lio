@@ -17,6 +17,8 @@ public class Item : MonoBehaviour
     [SerializeField]
     public string itemDescription;
 
+    public int itemId;
+    public int amountInStack;
     private InventoryManager inventoryManager;
 
     // Start is called before the first frame update
