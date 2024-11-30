@@ -26,12 +26,10 @@ public class Dialogue
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
-
     private bool isPlayerInTrigger = false;
     private GameObject interactBtn;
-    private DialogueManager dialogueManager;
 
-    public void Awake()
+    private void Awake()
     {
         if (UIManager.Instance != null)
         {
@@ -39,31 +37,22 @@ public class DialogueTrigger : MonoBehaviour
             UIManager.Instance.InitializeInteractBtn(prefab, GameObject.Find("Canvas").transform);
 
             interactBtn = UIManager.Instance.interactBtn;
-            dialogueManager = GetComponent<DialogueManager>();
         }
     }
 
     public void TriggerDialogue()
     {
-        if (DialogueManager.Instance == null)
+        if (DialogueManager.Instance != null)
         {
-            Debug.LogError("Não foi possível iniciar o diálogo. DialogueManager não está disponível.");
-            return;
+            DialogueManager.Instance.StartDialogue(dialogue);
         }
-
-        DialogueManager.Instance.StartDialogue(dialogue);
     }
-
 
     private void Update()
     {
         if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("Colidiu");
-            if (Input.GetKey(KeyCode.E))
-            {
-                TriggerDialogue();
-            }
+            TriggerDialogue();
         }
     }
 
@@ -84,12 +73,13 @@ public class DialogueTrigger : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isPlayerInTrigger = false;
-            DialogueManager.Instance?.EndDialogue();
-
             if (interactBtn != null)
             {
                 interactBtn.SetActive(false);
             }
+
+            DialogueManager.Instance?.EndDialogue();
         }
     }
 }
+

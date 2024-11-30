@@ -11216,6 +11216,10 @@ MonoBehaviour:
   quantity: 1
   sprite: {fileID: 943995739, guid: 0069a03e8fe5d7448aab386be85bae4b, type: 3}
   itemDescription: literalmente qualquer coisa
+  itemId: 0
+  amountInStack: 0
+  inventoryManager: {fileID: 0}
+  interactBtn: {fileID: 0}
 --- !u!50 &249562652
 Rigidbody2D:
   serializedVersion: 4
@@ -11749,6 +11753,10 @@ MonoBehaviour:
   quantity: 1
   sprite: {fileID: 21300000, guid: 63b581a8723f7c54385249ffd5ce434d, type: 3}
   itemDescription: "este \xE9 um livro sobre a lenda da floresta"
+  itemId: 0
+  amountInStack: 0
+  inventoryManager: {fileID: 0}
+  interactBtn: {fileID: 0}
 --- !u!212 &313391515
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12106,8 +12114,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 147685487}
   - {fileID: 459402451}
+  - {fileID: 147685487}
   - {fileID: 1971733382}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20028,6 +20036,10 @@ MonoBehaviour:
   quantity: 1
   sprite: {fileID: 943995739, guid: 0069a03e8fe5d7448aab386be85bae4b, type: 3}
   itemDescription: literalmente qualquer coisa
+  itemId: 0
+  amountInStack: 0
+  inventoryManager: {fileID: 0}
+  interactBtn: {fileID: 0}
 --- !u!114 &1544042714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37385,8 +37397,6 @@ MonoBehaviour:
   strNegativeBtn: {fileID: 1767140018}
   resNegativeBtn: {fileID: 1813082093}
   agiNegativeBtn: {fileID: 244884979}
-  attributeKey: 99
-  attributesPanel: {fileID: 197524747}
   inventoryKey: 105
   inventory: {fileID: 1647905126}
 --- !u!114 &1715980929
@@ -37410,8 +37420,6 @@ MonoBehaviour:
   interactablesLayer:
     serializedVersion: 2
     m_Bits: 0
-  startingPosition: {fileID: 11400000, guid: ae8ecab5b961eab4293edb00cbdc1d52, type: 2}
-  horizontal: 0
   pausePanel: {fileID: 1856436030}
   cena: MainMenu
 --- !u!50 &1715980930
@@ -38596,6 +38604,10 @@ MonoBehaviour:
   quantity: 1
   sprite: {fileID: 21300000, guid: d71e6e4659d946145a046df634aa07fc, type: 3}
   itemDescription: "este \xE9 o mapa da floresta "
+  itemId: 0
+  amountInStack: 0
+  inventoryManager: {fileID: 0}
+  interactBtn: {fileID: 0}
 --- !u!212 &1926161712
 SpriteRenderer:
   m_ObjectHideFlags: 0

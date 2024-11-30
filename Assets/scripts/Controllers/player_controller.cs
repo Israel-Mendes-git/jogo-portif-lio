@@ -25,8 +25,6 @@ public class player_controller : MonoBehaviour
     //variáveis de posições e layers
     public LayerMask solidObjectsLayer;
     public LayerMask interactablesLayer;
-    public VectorValue startingPosition;
-
 
     private float horizontal;
     private bool isPaused;
@@ -54,7 +52,6 @@ public class player_controller : MonoBehaviour
         this.direcaoMovimento = Direction.Direita;
 
         //armazena a posição do transform como posicial inicial 
-        transform.position = startingPosition.initialValue;
 
         //a velociadade inicial é a velocidade do script entity
         inicialSpeed = player.entity.speed;
@@ -115,11 +112,11 @@ public class player_controller : MonoBehaviour
         data.playerPosition = this.transform.position;  
     }
     void FixedUpdate()
-        {
-            
-            rig.MovePosition(rig.position + direction * player.entity.speed * Time.fixedDeltaTime);
+    {
 
-        }
+        rig.MovePosition(rig.position + direction * player.entity.speed * Time.fixedDeltaTime);
+
+    }
     void PlayerRun()   
     {
             //se a tecla control esquerdo for pressionado     
