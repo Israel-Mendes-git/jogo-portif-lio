@@ -10,6 +10,11 @@ public class InventoryManager : MonoBehaviour
     public ItemSO[] itemSOs;
     
 
+    private void Awake()
+    {
+        InventoryMenu.SetActive(false);
+    }
+
     // Update is called once per frame
     void Update()
     {

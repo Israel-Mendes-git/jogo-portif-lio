@@ -10,7 +10,7 @@ public class Detection_controller : MonoBehaviour
     //cria uma lista de colisores chamada de detectedObjs
     public List<Collider2D> detectedObjs = new List<Collider2D>();
 
-    private void  OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         //se o game object com a mesma tag que a tag alvo entrar na área de colisão 
         if(collision.gameObject.tag == TagTarget)
@@ -27,6 +27,7 @@ public class Detection_controller : MonoBehaviour
         {
             //remove o collision da lista 
             detectedObjs.Remove(collision);
+
         }
     }
 }

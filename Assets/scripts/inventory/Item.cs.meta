@@ -3,7 +3,10 @@ guid: 75bef37b4de608c499af07a61e07400a
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - sprite: {instanceID: 0}
+  - inventoryManager: {instanceID: 0}
+  - interactBtn: {fileID: 2363249610223441686, guid: 45662c95821c7494a9929704d50cb595, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -15,7 +15,7 @@ TagManager:
   - Interactable
   - Enemy
   - Ground
-  - 
+  - npc
   - 
   - 
   - 
@@ -50,4 +50,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3036679835
+    locked: 0
+  - name: Npc
+    uniqueID: 1737816967
     locked: 0

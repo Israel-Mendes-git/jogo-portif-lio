@@ -27,13 +27,37 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
 
+    private bool isPlayerInTrigger = false;
+    private GameObject interactBtn;
+    private DialogueManager dialogueManager;
+
+    public void Awake()
+    {
+        if (UIManager.Instance != null)
+        {
+            GameObject prefab = Resources.Load<GameObject>("Prefabs/InteractButtonUI");
+            UIManager.Instance.InitializeInteractBtn(prefab, GameObject.Find("Canvas").transform);
+
+            interactBtn = UIManager.Instance.interactBtn;
+            dialogueManager = GetComponent<DialogueManager>();
+        }
+    }
+
     public void TriggerDialogue()
     {
+        if (DialogueManager.Instance == null)
+        {
+            Debug.LogError("Não foi possível iniciar o diálogo. DialogueManager não está disponível.");
+            return;
+        }
+
         DialogueManager.Instance.StartDialogue(dialogue);
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+
+
+    private void Update()
     {
-        if(collision.tag == "Player")
+        if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("Colidiu");
             if (Input.GetKey(KeyCode.E))
@@ -41,9 +65,31 @@ public class DialogueTrigger : MonoBehaviour
                 TriggerDialogue();
             }
         }
-        else
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
         {
-            DialogueManager.Instance.EndDialogue();
+            isPlayerInTrigger = true;
+            if (interactBtn != null)
+            {
+                interactBtn.SetActive(true);
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            isPlayerInTrigger = false;
+            DialogueManager.Instance?.EndDialogue();
+
+            if (interactBtn != null)
+            {
+                interactBtn.SetActive(false);
+            }
         }
     }
 }

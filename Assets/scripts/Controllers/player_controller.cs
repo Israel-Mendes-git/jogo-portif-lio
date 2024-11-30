@@ -28,7 +28,7 @@ public class player_controller : MonoBehaviour
     public VectorValue startingPosition;
 
 
-    public float horizontal;
+    private float horizontal;
     private bool isPaused;
 
     [Header("Painel e Menu")]
@@ -43,8 +43,6 @@ public class player_controller : MonoBehaviour
         //recebendo o componente da física 
         rig = GetComponent<Rigidbody2D>();
         //buscando o objeto do Dialogue System
-        
-
     }
 
     void Start()
@@ -74,13 +72,13 @@ public class player_controller : MonoBehaviour
         
         //chama a função de corrida do player
         PlayerRun();
-
-        if(DialogueManager.Instance.isDialogueActive)
+        if (DialogueManager.Instance != null && DialogueManager.Instance.isDialogueActive)
         {
             horizontal = 0f;
             return;
         }
-       
+
+
         horizontal = Input.GetAxisRaw("Horizontal");    
 
         // se a direção de x for positiva 
@@ -163,10 +161,14 @@ public class player_controller : MonoBehaviour
     public void BackToMenu()
     {
         SceneManager.LoadScene(cena);
+        isPaused = false;
+        pausePanel.SetActive(false);
+        Time.timeScale = 1.0f;
     }
 
     public void BackToGame()
     {
-        PauseScreen();
+        PauseScreen();   
     }
+   
 }

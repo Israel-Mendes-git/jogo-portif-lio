@@ -20,13 +20,6 @@ public class player : MonoBehaviour
     public Button resNegativeBtn;
     public Button agiNegativeBtn;
 
-    [Header("Player shortcuts")]
-    public KeyCode attributeKey = KeyCode.C;
-
-    [Header("Player UI Panels")]
-    public GameObject attributesPanel;
-
-
     [Header("Player inventory")]
     public KeyCode inventoryKey = KeyCode.I;
 
@@ -41,10 +34,7 @@ public class player : MonoBehaviour
    
     private void Update()
     {
-        if (Input.GetKeyUp(attributeKey))
-        {
-            attributesPanel.SetActive(!attributesPanel.activeSelf);
-        }
+        
         if (Input.GetKeyUp(inventoryKey))
         {
             inventory.SetActive(!inventory.activeSelf);
