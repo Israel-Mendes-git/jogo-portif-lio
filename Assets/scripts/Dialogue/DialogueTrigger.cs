@@ -35,7 +35,11 @@ public class DialogueTrigger : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            TriggerDialogue();
+            Debug.Log("Colidiu");
+            if (Input.GetKey(KeyCode.E))
+            {
+                TriggerDialogue();
+            }
         }
         else
         {
