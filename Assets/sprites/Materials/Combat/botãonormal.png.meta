@@ -49,11 +49,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-<<<<<<< Updated upstream
-  spriteBorder: {x: 31, y: 169, z: 30, w: 189}
-=======
-  spriteBorder: {x: 29, y: 171, z: 29, w: 190}
->>>>>>> Stashed changes
+  spriteBorder: {x: 30, y: 170, z: 30, w: 190}  # Adjusted values or your choice
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
