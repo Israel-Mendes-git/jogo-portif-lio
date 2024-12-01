@@ -35,8 +35,6 @@ public class DialogueTrigger : MonoBehaviour
         {
             GameObject prefab = Resources.Load<GameObject>("Prefabs/InteractButtonUI");
             UIManager.Instance.InitializeInteractBtn(prefab, GameObject.Find("Canvas").transform);
-
-            interactBtn = UIManager.Instance.interactBtn;
         }
     }
 
@@ -61,6 +59,7 @@ public class DialogueTrigger : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isPlayerInTrigger = true;
+
             if (interactBtn != null)
             {
                 interactBtn.SetActive(true);

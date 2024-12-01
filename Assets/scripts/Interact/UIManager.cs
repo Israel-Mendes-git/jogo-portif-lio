@@ -5,46 +5,86 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
-    public GameObject interactBtn;
+    public GameObject interactBtnPrefab; // Prefab do botão
+    public GameObject interactBtn; // Instância do botão
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Persiste o UIManager entre cenas
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(gameObject); // Evita múltiplas instâncias do UIManager
+            Destroy(gameObject);
+            return;
+        }
+
+        // Verificar se o prefab está atribuído
+        if (interactBtnPrefab == null)
+        {
+            Debug.LogError("Prefab do botão de interação não está atribuído! Certifique-se de atribuí-lo no Inspector.");
         }
     }
 
+
     private void Start()
     {
-        // Inscreva-se para o evento de carregamento de cena
         SceneManager.sceneLoaded += OnSceneLoaded;
+
+        // Inicializar botão no Start para evitar erros
+        if (interactBtnPrefab != null)
+        {
+            InitializeInteractBtn(interactBtnPrefab, transform);
+        }
     }
+
 
     private void OnDestroy()
     {
-        // Desinscreva-se para evitar erros quando o objeto for destruído
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneLoaded -= OnSceneLoaded; // Remove inscrição
     }
 
-    // Método chamado quando a cena for carregada
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Inicialize o botão de interação novamente
-        InitializeInteractBtn(interactBtn, transform);
+        // Garante que o botão de interação seja inicializado novamente após carregar a cena
+        InitializeInteractBtn(interactBtnPrefab, transform);
     }
 
     public void InitializeInteractBtn(GameObject prefab, Transform parent)
     {
-        if (interactBtn == null && prefab != null)
+        if (prefab == null)
+        {
+            Debug.LogError("Prefab do botão de interação não está atribuído!");
+            return;
+        }
+
+        if (interactBtn == null)
         {
             interactBtn = Instantiate(prefab, parent, false);
-            interactBtn.SetActive(false); // O botão fica desativado inicialmente
+            interactBtn.SetActive(false); // Inicia desativado
+        }
+    }
+
+    public void ShowInteractButton(Transform npcTransform)
+    {
+        if (interactBtn == null)
+        {
+            Debug.LogWarning("Botão de interação não inicializado.");
+            return;
+        }
+
+        interactBtn.SetActive(true);
+        Vector3 screenPosition = Camera.main.WorldToScreenPoint(npcTransform.position + Vector3.up * 2); // Ajuste a posição para cima da cabeça
+        interactBtn.transform.position = screenPosition;
+    }
+
+    public void HideInteractButton()
+    {
+        if (interactBtn != null)
+        {
+            interactBtn.SetActive(false);
         }
     }
 }

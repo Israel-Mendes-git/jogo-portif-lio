@@ -2761,8 +2761,8 @@ Transform:
   m_GameObject: {fileID: 538439372}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.16730452, y: 0.27474785, z: 0}
-  m_LocalScale: {x: 0.46443102, y: 0.5986455, z: 1}
+  m_LocalPosition: {x: -0.155, y: 0.288, z: 0}
+  m_LocalScale: {x: 0.57291746, y: 0.7122385, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 815518313}
@@ -5877,7 +5877,7 @@ Transform:
   m_GameObject: {fileID: 753148229}
   serializedVersion: 2
   m_LocalRotation: {x: -0.008724224, y: 0.008724224, z: -0, w: 0.9999239}
-  m_LocalPosition: {x: 8.16, y: 26.9, z: 0.1}
+  m_LocalPosition: {x: 6.36, y: 18.99, z: 0.14}
   m_LocalScale: {x: 0.8951607, y: 0.99692416, z: 0.24352345}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6658,7 +6658,7 @@ Transform:
   m_GameObject: {fileID: 866711972}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.4778, y: -0.8515, z: 0.012348663}
+  m_LocalPosition: {x: -7.51, y: -0.95, z: 0.012348663}
   m_LocalScale: {x: 4.6353564, y: 4.638128, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7226,7 +7226,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cba4ac03d92bae94abb00609de9151e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactBtn: {fileID: 2363249610223441686, guid: 45662c95821c7494a9929704d50cb595, type: 3}
+  interactBtnPrefab: {fileID: 2363249610223441686, guid: 45662c95821c7494a9929704d50cb595, type: 3}
+  interactBtn: {fileID: 369386442}
 --- !u!4 &935338733
 Transform:
   m_ObjectHideFlags: 0
@@ -13958,6 +13959,7 @@ GameObject:
   - component: {fileID: 1047278597}
   - component: {fileID: 1047278596}
   - component: {fileID: 1047278599}
+  - component: {fileID: 1047278600}
   m_Layer: 3
   m_Name: Erick
   m_TagString: Player
@@ -13974,8 +13976,8 @@ Transform:
   m_GameObject: {fileID: 1047278594}
   serializedVersion: 2
   m_LocalRotation: {x: 0.008724224, y: -0.008724224, z: -0, w: 0.9999239}
-  m_LocalPosition: {x: -6.71, y: 10.24, z: -0.16}
-  m_LocalScale: {x: 0.16786647, y: 0.16657464, z: 1}
+  m_LocalPosition: {x: -6.55, y: 10.73, z: -0.15}
+  m_LocalScale: {x: 0.2192504, y: 0.21001731, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 753148230}
@@ -14037,11 +14039,11 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.07900004, y: -1.2625283}
-  m_Size: {x: 4.525589, y: 6.9003115}
+  m_Offset: {x: 0.10142336, y: -0.111542955}
+  m_Size: {x: 4.164753, y: 7.3606067}
   m_Direction: 0
 --- !u!212 &1047278598
 SpriteRenderer:
@@ -14143,6 +14145,18 @@ MonoBehaviour:
         name: Caio
         icon: {fileID: 21300000, guid: 3bc0a8fc0d3e5fc4db0278ce94cf3969, type: 3}
       line: Que maneiro!
+--- !u!114 &1047278600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047278594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d060999f7a89424aa726fbf3551233f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1139127483 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 63943548212136019, guid: c75a920b6625485419e61fc7ae7fe945, type: 3}
@@ -16003,7 +16017,7 @@ Transform:
   m_GameObject: {fileID: 1437350382}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.4989, y: -5.2889, z: 0.012348663}
+  m_LocalPosition: {x: -7.4989, y: -5.56, z: 0.012348663}
   m_LocalScale: {x: 4.6145244, y: 4.817897, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17221,8 +17235,8 @@ Transform:
   m_GameObject: {fileID: 1612868407}
   serializedVersion: 2
   m_LocalRotation: {x: -0.008724224, y: 0.008724224, z: -0, w: 0.9999239}
-  m_LocalPosition: {x: -5.7817, y: -20.033, z: 0.31994}
-  m_LocalScale: {x: 0.51446193, y: 0.51561844, z: 0.23091364}
+  m_LocalPosition: {x: -4.39, y: -14.87, z: 0.29}
+  m_LocalScale: {x: 0.57264763, y: 0.5739349, z: 0.25702998}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2007919238}
@@ -19710,6 +19724,7 @@ GameObject:
   - component: {fileID: 2007919240}
   - component: {fileID: 2007919239}
   - component: {fileID: 2007919242}
+  - component: {fileID: 2007919243}
   m_Layer: 3
   m_Name: "B\xE1rbara"
   m_TagString: Player
@@ -19726,8 +19741,8 @@ Transform:
   m_GameObject: {fileID: 2007919237}
   serializedVersion: 2
   m_LocalRotation: {x: 0.008724224, y: -0.008724224, z: -0, w: 0.9999239}
-  m_LocalPosition: {x: -5.29, y: 14.81, z: -0.16}
-  m_LocalScale: {x: 0.23581028, y: 0.24216253, z: 1}
+  m_LocalPosition: {x: -5.1419, y: 15.0404, z: -0.1534}
+  m_LocalScale: {x: 0.30827478, y: 0.32205194, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1612868408}
@@ -19792,8 +19807,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.14516608, y: -0.32791305}
-  m_Size: {x: 2.6911907, y: 5.0310655}
+  m_Offset: {x: -0.14516608, y: 0.1224393}
+  m_Size: {x: 2.6911922, y: 4.1303606}
   m_Direction: 0
 --- !u!212 &2007919241
 SpriteRenderer:
@@ -19892,6 +19907,18 @@ MonoBehaviour:
         icon: {fileID: 21300000, guid: 6f2e6e5a0607d2a49b499c4f841d41f6, type: 3}
       line: "Mapa da floresta\u2026 Caraca que maneiro, o mapa da floresta t\xE1
         com a gente. Nunca reclamei de Geografia"
+--- !u!114 &2007919243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007919237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d060999f7a89424aa726fbf3551233f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2052761919
 PrefabInstance:
   m_ObjectHideFlags: 0
