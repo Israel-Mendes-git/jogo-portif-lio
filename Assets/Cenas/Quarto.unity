@@ -5134,7 +5134,7 @@ Transform:
   m_GameObject: {fileID: 538321237}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1259.9774, y: -449.86343, z: -6.02388}
+  m_LocalPosition: {x: -1257.3783, y: -448.91864, z: -5.9573803}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13057,7 +13057,7 @@ Transform:
   m_GameObject: {fileID: 1758212781}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1259.9774, y: -449.86343, z: -6.02388}
+  m_LocalPosition: {x: -1257.3783, y: -448.91864, z: -5.9573803}
   m_LocalScale: {x: 1, y: 0.6278125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13076,7 +13076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BoundingShape2D: {fileID: 0}
+  m_BoundingShape2D: {fileID: 1996699297}
   m_Damping: 0.5
   m_MaxWindowSize: -1
 --- !u!114 &1758212784
@@ -14268,7 +14268,7 @@ Transform:
   m_GameObject: {fileID: 2013209637}
   serializedVersion: 2
   m_LocalRotation: {x: 0.008724224, y: -0.008724224, z: -0, w: 0.9999239}
-  m_LocalPosition: {x: -3.1291, y: -1.0748, z: -0.1265}
+  m_LocalPosition: {x: -0.53, y: -0.13, z: -0.06}
   m_LocalScale: {x: 0.15554005, y: 0.14982006, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14540,6 +14540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cba4ac03d92bae94abb00609de9151e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactBtnPrefab: {fileID: 0}
   interactBtn: {fileID: 2363249610223441686, guid: 45662c95821c7494a9929704d50cb595, type: 3}
 --- !u!4 &2094550771
 Transform:
