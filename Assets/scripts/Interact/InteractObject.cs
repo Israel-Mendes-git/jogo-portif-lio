@@ -15,12 +15,6 @@ public class InteractObject : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private bool isPlayerInRange = false;
 
     //cria e armazena uma tag alvo como sendo Player

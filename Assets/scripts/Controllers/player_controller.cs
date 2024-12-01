@@ -140,16 +140,14 @@ public class player_controller : MonoBehaviour
             isPaused = false;
             pausePanel.SetActive(false);
             Time.timeScale = 1.0f;
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            
         }
         else
         {
             isPaused = true;
             pausePanel.SetActive(true);
             Time.timeScale = 0f;
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            
 
         }
 
@@ -157,10 +155,10 @@ public class player_controller : MonoBehaviour
 
     public void BackToMenu()
     {
-        SceneManager.LoadScene(cena);
         isPaused = false;
         pausePanel.SetActive(false);
         Time.timeScale = 1.0f;
+        SceneManager.LoadScene(cena);
     }
 
     public void BackToGame()

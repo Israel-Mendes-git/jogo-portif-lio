@@ -1,8 +1,9 @@
-    using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class DialogueManager : MonoBehaviour
     public Image characterIcon;
     public TextMeshProUGUI characterName;
     public TextMeshProUGUI dialogueArea;
+    public string cena;
 
     private Queue<DialogueLine> lines;
 
@@ -126,6 +128,11 @@ public class DialogueManager : MonoBehaviour
         isDialogueActive = false;
         dialogueArea.text = "";
         dialogueBox.SetActive(false);
+    }
+
+    public void SceneSwap()
+    {
+        SceneManager.LoadScene(cena);
     }
 
 }

@@ -8,7 +8,7 @@ public class EnemyFighter : Fighter // Classe que representa um lutador inimigo,
     void Awake()
     {
         // Inicializa os stats do inimigo com valores específicos
-        this.stats = new Stats(20, 50, 40, 30, 60);
+        this.stats = new Stats(1, 30, 12, 7, 3);
     }
 
     // Método chamado no início do turno do inimigo

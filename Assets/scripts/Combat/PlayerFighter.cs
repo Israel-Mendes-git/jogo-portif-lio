@@ -14,7 +14,7 @@ public class PlayerFighter : Fighter
     // Inicializa as estatísticas do jogador
     void Awake()
     {
-        this.stats = new Stats(21, 60, 50, 45, 20); // Define os valores das estatísticas
+        this.stats = new Stats(1, 20, 15, 8, 1); // Define os valores das estatísticas
     }
 
     // Método que inicia o turno do jogador
