@@ -1975,9 +1975,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1731915730}
-        m_TargetAssemblyTypeName: player_controller, Assembly-CSharp
-        m_MethodName: BackToGame
+      - m_Target: {fileID: 855650907}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: Return
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5213,7 +5213,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1731915730}
         m_TargetAssemblyTypeName: player_controller, Assembly-CSharp
         m_MethodName: BackToGame
         m_Mode: 1
@@ -7316,8 +7316,8 @@ GameObject:
   - component: {fileID: 731130980}
   - component: {fileID: 731130979}
   - component: {fileID: 731130978}
-  - component: {fileID: 731130977}
   - component: {fileID: 731130976}
+  - component: {fileID: 731130982}
   m_Layer: 3
   m_Name: Soraya
   m_TagString: Player
@@ -7376,54 +7376,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.15887228, y: 0.118237115}
   m_Size: {x: 2.7130523, y: 4.0463524}
   m_Direction: 0
---- !u!114 &731130977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 731130974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc03c3596acf3ad48a4e98911e2391cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    dialogueLines:
-    - character:
-        name: "B\xE1rbara"
-        icon: {fileID: 21300000, guid: fdb2b2ad8803fb74788a02b1f8e45aaf, type: 3}
-      line: "Nossa Caio, \xE9 a sess\xE3o de terror, que maneiro"
-    - character:
-        name: Caio
-        icon: {fileID: 21300000, guid: 3bc0a8fc0d3e5fc4db0278ce94cf3969, type: 3}
-      line: Sim, muito massa.  Acho que deve ter algum livro sobre a floresta aqui
-    - character:
-        name: "B\xE1rbara"
-        icon: {fileID: 21300000, guid: 8919cdae8589d29478edc9c54c2eb76a, type: 3}
-      line: "Deixa eu dar uma olhada aqui, Stephen King, Edgar Allan Poe. Pera, esse
-        daqui eu n\xE3o conhe\xE7o. Martins Andrada?"
-    - character:
-        name: Caio
-        icon: {fileID: 21300000, guid: 3bc0a8fc0d3e5fc4db0278ce94cf3969, type: 3}
-      line: "Quem \xE9 esse?"
-    - character:
-        name: "B\xE1rbara"
-        icon: {fileID: 21300000, guid: 8919cdae8589d29478edc9c54c2eb76a, type: 3}
-      line: "M\xEDnima ideia, pera a\xED?"
-    - character:
-        name: Caio
-        icon: {fileID: 21300000, guid: 3bc0a8fc0d3e5fc4db0278ce94cf3969, type: 3}
-      line: O que foi?
-    - character:
-        name: "B\xE1rbara"
-        icon: {fileID: 21300000, guid: 8919cdae8589d29478edc9c54c2eb76a, type: 3}
-      line: "\xC9 um livro sobre uma an\xE1lise da lenda da floresta. Isso deve nos
-        ajudar"
-    - character:
-        name: Caio
-        icon: {fileID: 21300000, guid: 3bc0a8fc0d3e5fc4db0278ce94cf3969, type: 3}
-      line: Que maneiro!
 --- !u!114 &731130978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7550,6 +7502,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &731130982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731130974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa8c1d8b18d81aa47ac45aee4d178e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shop: {fileID: 855650903}
 --- !u!1 &735209653
 GameObject:
   m_ObjectHideFlags: 0
@@ -8980,7 +8945,7 @@ MonoBehaviour:
   CoinsTxt: {fileID: 294141000}
   inv: {fileID: 436840921}
   item: {fileID: 993054653}
-  shop: {fileID: 0}
+  shop: {fileID: 855650903}
 --- !u!1 &857296648
 GameObject:
   m_ObjectHideFlags: 0
@@ -22328,7 +22293,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1731915730}
         m_TargetAssemblyTypeName: player_controller, Assembly-CSharp
         m_MethodName: BackToMenu
         m_Mode: 1
@@ -22554,7 +22519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BoundingShape2D: {fileID: 866746848}
+  m_BoundingShape2D: {fileID: 0}
   m_Damping: 0.5
   m_MaxWindowSize: -1
 --- !u!114 &1671629297

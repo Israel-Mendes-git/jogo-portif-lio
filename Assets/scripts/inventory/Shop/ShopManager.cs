@@ -32,7 +32,6 @@ public class ShopManager : MonoBehaviour
         shopItems[2,3] = 1;
         shopItems[2,4] = 1;
         shopItems[2,5] = 1;
-        shopItems[2,6] = 1;
 
         //Quantidade
         shopItems[3, 1] = 0;
@@ -40,30 +39,33 @@ public class ShopManager : MonoBehaviour
         shopItems[3, 3] = 0;
         shopItems[3, 4] = 0;
         shopItems[3,5] = 0;
-        shopItems[3,6] = 0;
 
-        inv = GetComponent<InventoryManager>();
+
+        inv = GameObject.Find("Canvas").GetComponent<InventoryManager>();
         item = GameObject.Find("PaçocaShop").GetComponent<Item>();
     }
 
     // Update is called once per frame
-    public void Buy()
-    {
-        GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
-
-        if( coins >= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID])
+        public void Buy()
         {
-            coins -= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID];
-            shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID]++;
-            CoinsTxt.text = "Dinheiro: R$ " + coins.ToString() + ",00";
-            ButtonRef.GetComponent<ButtonInfo>().QuantityTxt.text = shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID].ToString();
-            inv.AddItem(item.itemName, item.quantity, item.sprite, item.itemDescription);
+            GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
 
+            if( coins >= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID])
+            {
+                coins -= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID];
+                shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID]++;
+                CoinsTxt.text = "Dinheiro: R$ " + coins.ToString() + ",00";
+                ButtonRef.GetComponent<ButtonInfo>().QuantityTxt.text = shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID].ToString();
+                inv.AddItem(item.itemName, item.quantity, item.sprite, item.itemDescription);
+
+            }
         }
-    }
+
 
     public void Return()
     {
-
+        shop.SetActive(false);
     }
+
+
 }

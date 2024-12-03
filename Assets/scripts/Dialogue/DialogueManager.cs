@@ -13,6 +13,8 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI characterName;
     public TextMeshProUGUI dialogueArea;
     public string cena;
+    public GameObject nextScene;
+    public GameObject nextBtn;
 
     private Queue<DialogueLine> lines;
 
@@ -30,6 +32,7 @@ public class DialogueManager : MonoBehaviour
 
     void Awake()
     {
+        nextScene.SetActive(false);
         if (Instance == null)
         {
             Instance = this;
@@ -76,33 +79,36 @@ public class DialogueManager : MonoBehaviour
         DisplayNextDialogueLine();
 
         // Ativar o botão de interação quando o diálogo começar
-        UIManager.Instance.interactBtn.SetActive(true);
+        UIManager.Instance.interactBtn.SetActive(false);
     }
 
 
 
 
     public void DisplayNextDialogueLine()
-{
-    if (lines.Count == 0)
     {
-        EndDialogue();
-        return;
+        if (lines.Count == 0)
+        {
+            EndDialogue();
+            return;
+        }
+
+        DialogueLine currentLine = lines.Dequeue();
+
+        characterIcon.sprite = currentLine.character.icon;
+        characterName.text = currentLine.character.name;
+
+        StopAllCoroutines(); // Para qualquer Coroutine anterior
+        StartCoroutine(TypeSentence(currentLine));
+
+        // Habilitar botão apenas quando o texto estiver completamente exibido
+        Button nextBtn = GameObject.Find("NextBtn").GetComponent<Button>();
+        nextBtn.interactable = true;
+
+        SceneSwap();
+
+        
     }
-
-    DialogueLine currentLine = lines.Dequeue();
-
-    characterIcon.sprite = currentLine.character.icon;
-    characterName.text = currentLine.character.name;
-
-    StopAllCoroutines(); // Para qualquer Coroutine anterior
-    StartCoroutine(TypeSentence(currentLine));
-
-    // Habilitar botão apenas quando o texto estiver completamente exibido
-    Button nextBtn = GameObject.Find("NextBtn").GetComponent<Button>();
-    nextBtn.interactable = true;
-}
-
 
 
 
@@ -132,7 +138,12 @@ public class DialogueManager : MonoBehaviour
 
     public void SceneSwap()
     {
-        SceneManager.LoadScene(cena);
+        if (lines.Count == 5)
+        {
+            nextScene.SetActive(true);
+            nextBtn.SetActive(false);
+            SceneManager.LoadScene(cena);
+        }
     }
 
 }

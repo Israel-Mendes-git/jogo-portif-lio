@@ -3945,7 +3945,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &343754160
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3984,6 +3984,8 @@ MonoBehaviour:
   characterName: {fileID: 490111510}
   dialogueArea: {fileID: 940555961}
   cena: cutscenebiblioteca1
+  nextScene: {fileID: 0}
+  nextBtn: {fileID: 0}
   isDialogueActive: 0
   dialogueBox: {fileID: 343754159}
   typingSpeed: 0.05
@@ -6782,7 +6784,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -10521,7 +10523,7 @@ MonoBehaviour:
   m_Follow: {fileID: 189235148}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 2
+    OrthographicSize: 3
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
