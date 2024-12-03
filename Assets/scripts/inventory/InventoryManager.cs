@@ -38,20 +38,25 @@ public class InventoryManager : MonoBehaviour
 
     public void UseItem(string itemName)
     {
+        //para cada item usável no inventário
         for (int i = 0; i < itemSOs.Length; i++)
         {
+            //se o nome for igual
             if (itemSOs[i].itemName == itemName)
             {
+                //chama a função usar o item
                 itemSOs[i].UseItem();
-                break; // Saia do loop após usar o item
+                break; 
             }
         }
     }
 
+    //função para adicionar o item no inventário
     public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription)
     {
         for (int i = 0; i < itemSlot.Length; i++)
         {
+            //se o slot não estiver lotado adiciona o item no slot
             if (itemSlot[i].isFull == false && itemSlot[i].name == name || itemSlot[i].quantity == 0)
             {
                 int leftOverItems = itemSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription);

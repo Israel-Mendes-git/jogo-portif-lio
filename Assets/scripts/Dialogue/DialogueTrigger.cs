@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//serializa uma nova classe para o nome e a imagem de quem tá falando
 [System.Serializable]
 public class DialogueCharacter
 {
@@ -9,6 +10,7 @@ public class DialogueCharacter
     public Sprite icon;
 }
 
+//serializa uma nova classe para as linhas de diálogo do personagem que está falando
 [System.Serializable]
 public class DialogueLine
 {
@@ -17,6 +19,7 @@ public class DialogueLine
     public string line;
 }
 
+//serializa uma nova classe para criar uma lista das linhas de diálogo
 [System.Serializable]
 public class Dialogue
 {
@@ -31,13 +34,16 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Awake()
     {
+        //se a intância do UI manager não for nula 
         if (UIManager.Instance != null)
         {
+            //busca o prefab 
             GameObject prefab = Resources.Load<GameObject>("Prefabs/InteractButtonUI");
             UIManager.Instance.InitializeInteractBtn(prefab, GameObject.Find("Canvas").transform);
         }
     }
 
+    //função para começar o diálogo caso a instância não seja nula
     public void TriggerDialogue()
     {
         if (DialogueManager.Instance != null)
@@ -48,8 +54,10 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Update()
     {
+        // se estiver na área de colisão e pressione a tecla E
         if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.E))
         {
+            //chama a função de iniciar o diálogo
             TriggerDialogue();
         }
     }

@@ -13,8 +13,6 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI characterName;
     public TextMeshProUGUI dialogueArea;
     public string cena;
-    public GameObject nextScene;
-    public GameObject nextBtn;
 
     private Queue<DialogueLine> lines;
 
@@ -32,7 +30,6 @@ public class DialogueManager : MonoBehaviour
 
     void Awake()
     {
-        nextScene.SetActive(false);
         if (Instance == null)
         {
             Instance = this;
@@ -104,9 +101,6 @@ public class DialogueManager : MonoBehaviour
         // Habilitar botão apenas quando o texto estiver completamente exibido
         Button nextBtn = GameObject.Find("NextBtn").GetComponent<Button>();
         nextBtn.interactable = true;
-
-        SceneSwap();
-
         
     }
 
@@ -136,14 +130,6 @@ public class DialogueManager : MonoBehaviour
         dialogueBox.SetActive(false);
     }
 
-    public void SceneSwap()
-    {
-        if (lines.Count == 5)
-        {
-            nextScene.SetActive(true);
-            nextBtn.SetActive(false);
-            SceneManager.LoadScene(cena);
-        }
-    }
+    
 
 }

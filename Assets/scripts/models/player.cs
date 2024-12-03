@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class player : MonoBehaviour
 {
-
+    //chama o script entity
     public entity entity;
 
+    //define os componentes que vão ser usados
     [Header("Player UI")]
     public Text strTxt;
     public Text resTxt;
@@ -19,10 +20,12 @@ public class player : MonoBehaviour
     public Button strNegativeBtn;
     public Button resNegativeBtn;
     public Button agiNegativeBtn;
-
+    
+    //define a tecla para abrir o inventário
     [Header("Player inventory")]
     public KeyCode inventoryKey = KeyCode.I;
 
+    //define o objeto que vai ser ativado, no caso o inventário
     [Header("Player UI Panels")]
     public GameObject inventory;
 
@@ -35,6 +38,7 @@ public class player : MonoBehaviour
     private void Update()
     {
         
+        //ativa o inventário caso pressione a tecla 
         if (Input.GetKeyUp(inventoryKey))
         {
             inventory.SetActive(!inventory.activeSelf);
@@ -45,6 +49,7 @@ public class player : MonoBehaviour
 
     public void UpdatePoints()
     {
+        //converto os pontos para string
         strTxt.text = entity.strength.ToString();
         resTxt.text = entity.resistence.ToString();
         agiTxt.text = entity.agility.ToString();
@@ -53,6 +58,7 @@ public class player : MonoBehaviour
 
     public void SetupUIButtons()
     {
+        //adiciona ou remove pontos caso seja clicado 
         strPositiveBtn.onClick.AddListener(() => AddPoints(1));
         resPositiveBtn.onClick.AddListener(() => AddPoints(2));
         agiPositiveBtn.onClick.AddListener(() => AddPoints(3));
@@ -66,6 +72,7 @@ public class player : MonoBehaviour
 
     public void AddPoints(int index)
     {
+        //define o valor mínimo para a quantidade de pontos
         if (entity.points > 0)
         {
             if (index == 1)
@@ -91,7 +98,7 @@ public class player : MonoBehaviour
 
     public void RemovePoints(int index)
     {
-        
+        //remove uma quantidade de pontos
             if (index == 1 && entity.strength > 0)
                 entity.strength--;
             else if (index == 2 && entity.resistence > 0)

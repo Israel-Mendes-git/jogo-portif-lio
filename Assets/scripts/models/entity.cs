@@ -9,11 +9,12 @@ public class entity
     [Header("Name")]
     public string name;
 
-
+    //define a stamina atual
     [Header("Stamina")]
     public int currentStamina;
     public int maxStamina;
 
+    //define os stats atual
     [Header("Stats")]
     public int strength = 1;
     public int resistence = 1;

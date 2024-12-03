@@ -3984,8 +3984,6 @@ MonoBehaviour:
   characterName: {fileID: 490111510}
   dialogueArea: {fileID: 940555961}
   cena: cutscenebiblioteca1
-  nextScene: {fileID: 0}
-  nextBtn: {fileID: 0}
   isDialogueActive: 0
   dialogueBox: {fileID: 343754159}
   typingSpeed: 0.05

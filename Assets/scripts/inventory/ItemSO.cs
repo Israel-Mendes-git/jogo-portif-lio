@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class ItemSO : ScriptableObject
 {
-    
+    //variáveis dos itens consumíveis
     public string itemName;
     public StatToChange statToChange = new StatToChange();
     public int amountToChangeStat;

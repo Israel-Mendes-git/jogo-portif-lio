@@ -10,13 +10,16 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
+        //se a instância não existir 
         if (Instance == null)
         {
+            //ela se torna essa e não destroi quando for carregada
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
         {
+            //se existir, só destroi 
             Destroy(gameObject);
             return;
         }
@@ -33,7 +36,7 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
 
-        // Inicializar botão no Start para evitar erros
+        //inicializando o botão
         if (interactBtnPrefab != null)
         {
             InitializeInteractBtn(interactBtnPrefab, transform);
@@ -56,12 +59,14 @@ public class UIManager : MonoBehaviour
     {
         if (prefab == null)
         {
+            //verifica se o prefab é nulo
             Debug.LogError("Prefab do botão de interação não está atribuído!");
             return;
         }
 
         if (interactBtn == null)
         {
+            //botão de interação se torna uma instância
             interactBtn = Instantiate(prefab, parent, false);
             interactBtn.SetActive(false); // Inicia desativado
         }
@@ -71,15 +76,19 @@ public class UIManager : MonoBehaviour
     {
         if (interactBtn == null)
         {
+            //verifica se o botão de interação foi inicializado
             Debug.LogWarning("Botão de interação não inicializado.");
             return;
         }
-
+        
+        //ativa o botão de interação
         interactBtn.SetActive(true);
-        Vector3 screenPosition = Camera.main.WorldToScreenPoint(npcTransform.position + Vector3.up * 2); // Ajuste a posição para cima da cabeça
+        // Ajusta a posição da câmera
+        Vector3 screenPosition = Camera.main.WorldToScreenPoint(npcTransform.position + Vector3.up * 2); 
         interactBtn.transform.position = screenPosition;
     }
-
+    
+    //função para esconder o botão de interação
     public void HideInteractButton()
     {
         if (interactBtn != null)

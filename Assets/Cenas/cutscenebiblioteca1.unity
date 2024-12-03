@@ -17155,8 +17155,6 @@ MonoBehaviour:
   characterName: {fileID: 1674451682}
   dialogueArea: {fileID: 1265075494}
   cena: 
-  nextScene: {fileID: 1257571359}
-  nextBtn: {fileID: 417781661}
   isDialogueActive: 0
   dialogueBox: {fileID: 1832551523}
   typingSpeed: 0.05
