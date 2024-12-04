@@ -7318,6 +7318,7 @@ GameObject:
   - component: {fileID: 731130978}
   - component: {fileID: 731130976}
   - component: {fileID: 731130982}
+  - component: {fileID: 731130983}
   m_Layer: 3
   m_Name: Soraya
   m_TagString: Player
@@ -7515,6 +7516,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shop: {fileID: 855650903}
+--- !u!95 &731130983
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731130974}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a466ad71626dcc14382269f855f21710, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &735209653
 GameObject:
   m_ObjectHideFlags: 0
@@ -16907,6 +16929,7 @@ GameObject:
   - component: {fileID: 1047278600}
   - component: {fileID: 1047278601}
   - component: {fileID: 1047278602}
+  - component: {fileID: 1047278603}
   m_Layer: 3
   m_Name: Erick
   m_TagString: Player
@@ -17136,6 +17159,27 @@ CapsuleCollider2D:
   m_Offset: {x: 0.09416899, y: -0.13111569}
   m_Size: {x: 4.1679564, y: 7.3496914}
   m_Direction: 0
+--- !u!95 &1047278603
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047278594}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 42eb434a660b937428e5cc6e3b0b2a53, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1059877642
 GameObject:
   m_ObjectHideFlags: 0
@@ -19338,6 +19382,7 @@ GameObject:
   - component: {fileID: 1396200931}
   - component: {fileID: 1396200930}
   - component: {fileID: 1396200929}
+  - component: {fileID: 1396200935}
   m_Layer: 3
   m_Name: Lily
   m_TagString: Player
@@ -19583,6 +19628,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1396200935
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396200927}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 05ad0857d4f25c04d9662d6002be7775, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1398500570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20561,6 +20627,7 @@ GameObject:
   - component: {fileID: 1504452419}
   - component: {fileID: 1504452418}
   - component: {fileID: 1504452423}
+  - component: {fileID: 1504452424}
   m_Layer: 3
   m_Name: Raul
   m_TagString: Player
@@ -20797,6 +20864,27 @@ CapsuleCollider2D:
   m_Offset: {x: 0.014093679, y: -0.2328503}
   m_Size: {x: 1.6089977, y: 2.2685423}
   m_Direction: 0
+--- !u!95 &1504452424
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504452416}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cb047b5f047d83d47bee60dfdf010055, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1506162634
 GameObject:
   m_ObjectHideFlags: 0
@@ -25022,6 +25110,7 @@ GameObject:
   - component: {fileID: 2007919243}
   - component: {fileID: 2007919244}
   - component: {fileID: 2007919245}
+  - component: {fileID: 2007919246}
   m_Layer: 3
   m_Name: "B\xE1rbara"
   m_TagString: Player
@@ -25254,6 +25343,27 @@ CapsuleCollider2D:
   m_Offset: {x: -0.15887228, y: 0.118237115}
   m_Size: {x: 2.7130523, y: 4.0463524}
   m_Direction: 0
+--- !u!95 &2007919246
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007919237}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 75c03c6e40ef823408aff0116aa10dee, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2011844244
 GameObject:
   m_ObjectHideFlags: 0
